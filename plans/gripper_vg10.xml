@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Plan>
+  <Control type="sequential" name="onrobot_vg10_vacuum_sequence">
+    <Runner
+      interface="onrobot_capabilities/OnRobotVGCommandRunner"
+      provider="onrobot_capabilities/OnRobotVGCommandRunner"
+      mode_a="1"
+      mode_b="2"
+      target_vacuum_a_percent="60"
+      target_vacuum_b_percent="0" />
+    <Runner
+      interface="onrobot_capabilities/OnRobotVGCommandRunner"
+      provider="onrobot_capabilities/OnRobotVGCommandRunner"
+      mode_a="0"
+      mode_b="0"
+      target_vacuum_a_percent="0"
+      target_vacuum_b_percent="0" />
+  </Control>
+</Plan>

@@ -1,0 +1,5 @@
+<library path="onrobot_capabilities">
+  <class type="onrobot_capabilities::VGCommandRunner" base_class_type="capabilities2_runner::RunnerBase">
+    <description>Commands an OnRobot VG-series vacuum gripper.</description>
+  </class>
+</library>

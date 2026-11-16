@@ -1,0 +1,12 @@
+%YAML 1.1
+---
+name: OnRobotRGStateRunner
+spec_type: semantic_interface
+spec_version: 1.2
+description: "Reads the selected OnRobot RG-series aperture state in meters."
+redefines: gripper_capabilities/GripperStateRunner
+interface:
+  topics:
+    "/gripper_joint_states":
+      type: "sensor_msgs::msg::JointState"
+      description: "Single-joint RG aperture state published by the selected simulator."

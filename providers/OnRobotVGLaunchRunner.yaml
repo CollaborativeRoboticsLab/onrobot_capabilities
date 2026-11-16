@@ -1,0 +1,15 @@
+%YAML 1.1
+---
+name: OnRobotVGLaunchRunner
+spec_type: provider
+spec_version: 1.2
+description: "Starts OnRobot VG control software without starting Gazebo."
+implements: onrobot_capabilities/OnRobotVGLaunchRunner
+runner: onrobot_control/bringup_vg.launch.py
+
+definition:
+  launch_readiness:
+    action:
+      name: "/gripper_command"
+      type: onrobot_msgs/action/VGCommand
+      timeout: 60.0

@@ -1,0 +1,20 @@
+%YAML 1.1
+---
+name: OnRobotRG6LaunchRunner
+spec_type: provider
+spec_version: 1.2
+description: "Starts the OnRobot RG6 control software"
+implements: onrobot_capabilities/OnRobotRGLaunchRunner
+runner: onrobot_control/bringup.launch.py
+
+definition:
+  launch_parameters:
+    - key: gripper
+      value: rg6
+    - key: namespace
+      value: ""
+  launch_readiness:
+    action:
+      name: "/gripper_command"
+      type: control_msgs/action/GripperCommand
+      timeout: 60.0

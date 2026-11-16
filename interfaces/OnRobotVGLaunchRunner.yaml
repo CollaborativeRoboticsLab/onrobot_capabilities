@@ -1,0 +1,11 @@
+%YAML 1.1
+---
+name: OnRobotVGLaunchRunner
+spec_type: interface
+spec_version: 1.2
+description: "Launches OnRobot VG control software without starting Gazebo."
+interface:
+  actions:
+    "/gripper_command":
+      type: "onrobot_msgs::action::VGCommand"
+      description: "Shared OnRobot VG-series vacuum command action."

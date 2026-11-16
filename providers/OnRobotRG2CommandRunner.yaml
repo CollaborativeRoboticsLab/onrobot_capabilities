@@ -1,0 +1,40 @@
+%YAML 1.1
+---
+name: OnRobotRG2CommandRunner
+spec_type: provider
+spec_version: 1.2
+description: "Commands the simulated RG2 aperture using the generic gripper action runner."
+implements: onrobot_capabilities/OnRobotRGCommandRunner
+runner: capabilities2_runner::GripperCommandRunner
+
+definition:
+  command: "<Runner interface=onrobot_capabilities/OnRobotRGCommandRunner provider=onrobot_capabilities/OnRobotRG2CommandRunner position='$position' max_effort='$max_effort' />"
+  configuration_parameters:
+    - name: position
+      type: double
+      semantic_key: gripper.command.position
+      description: "Requested RG2 aperture in meters, from closed at zero to 0.11 m."
+    - name: max_effort
+      type: double
+      optional: true
+      default: 0.0
+      semantic_key: gripper.command.max_effort
+      description: "Use zero in simulation; the current hardware command server is offline-only."
+  runtime_parameters:
+    output:
+      - name: reached_position
+        type: double
+        semantic_key: gripper.result.position
+        description: "Final aperture in meters reported by the action result."
+      - name: reached_effort
+        type: double
+        semantic_key: gripper.result.effort
+        description: "Final effort reported by the action result; the simulator reports zero."
+      - name: stalled
+        type: bool
+        semantic_key: gripper.result.stalled
+        description: "Whether the action reports a stall."
+      - name: reached_goal
+        type: bool
+        semantic_key: gripper.result.reached_goal
+        description: "Whether the requested aperture was reached."

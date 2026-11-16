@@ -1,0 +1,11 @@
+%YAML 1.1
+---
+name: OnRobotVGCommandRunner
+spec_type: interface
+spec_version: 1.2
+description: "Commands both channels of an OnRobot VG-series vacuum gripper."
+interface:
+  actions:
+    "/gripper_command":
+      type: "onrobot_msgs::action::VGCommand"
+      description: "Shared OnRobot VG-series vacuum command action."

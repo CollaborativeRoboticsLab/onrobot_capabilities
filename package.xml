@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>onrobot_capabilities</name>
+  <version>0.1.0</version>
+  <description>OnRobot gripper capabilities built on generic gripper runners and a VG action adapter.</description>
+
+  <maintainer email="kalanaratnayake95@gmail.com">Kalana Ratnayake</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>capabilities2_events</depend>
+  <depend>capabilities2_runner</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>onrobot_msgs</depend>
+
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>gripper_capabilities</exec_depend>
+  <exec_depend>onrobot_control</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <semantic_capability_interface>semantic_interfaces/OnRobotRGLaunchRunner.yaml</semantic_capability_interface>
+    <semantic_capability_interface>semantic_interfaces/OnRobotRGCommandRunner.yaml</semantic_capability_interface>
+    <semantic_capability_interface>semantic_interfaces/OnRobotRGStateRunner.yaml</semantic_capability_interface>
+    <capability_interface>interfaces/OnRobotVGLaunchRunner.yaml</capability_interface>
+    <capability_interface>interfaces/OnRobotVGCommandRunner.yaml</capability_interface>
+    <capability_provider>providers/OnRobotRG2LaunchRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotRG2CommandRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotRG2StateRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotRG6LaunchRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotRG6CommandRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotRG6StateRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotVGLaunchRunner.yaml</capability_provider>
+    <capability_provider>providers/OnRobotVGCommandRunner.yaml</capability_provider>
+  </export>
+</package>

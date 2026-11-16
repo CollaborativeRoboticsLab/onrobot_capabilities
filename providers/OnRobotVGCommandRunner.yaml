@@ -1,0 +1,46 @@
+%YAML 1.1
+---
+name: OnRobotVGCommandRunner
+spec_type: provider
+spec_version: 1.2
+description: "Commands OnRobot VG10 or VGC10 using the shared VG action interface."
+implements: onrobot_capabilities/OnRobotVGCommandRunner
+runner: onrobot_capabilities::VGCommandRunner
+
+definition:
+  command: "<Runner interface=onrobot_capabilities/OnRobotVGCommandRunner provider=onrobot_capabilities/OnRobotVGCommandRunner mode_a='$mode_a' mode_b='$mode_b' target_vacuum_a_percent='$target_vacuum_a_percent' target_vacuum_b_percent='$target_vacuum_b_percent' />"
+  configuration_parameters:
+    - name: mode_a
+      type: int
+      optional: true
+      default: 1
+      semantic_key: gripper.vacuum.mode_a
+      description: "Channel A mode: 0 release, 1 grip, or 2 idle."
+    - name: mode_b
+      type: int
+      optional: true
+      default: 2
+      semantic_key: gripper.vacuum.mode_b
+      description: "Channel B mode: 0 release, 1 grip, or 2 idle."
+    - name: target_vacuum_a_percent
+      type: int
+      optional: true
+      default: 60
+      semantic_key: gripper.vacuum.target_a_percent
+      description: "Channel A target vacuum, 0 to 80 percent."
+    - name: target_vacuum_b_percent
+      type: int
+      optional: true
+      default: 0
+      semantic_key: gripper.vacuum.target_b_percent
+      description: "Channel B target vacuum, 0 to 80 percent."
+  runtime_parameters:
+    output:
+      - name: measured_vacuum_a_milli_relative
+        type: int
+        semantic_key: gripper.vacuum.measured_a
+        description: "Measured channel A vacuum in thousandths of relative vacuum."
+      - name: measured_vacuum_b_milli_relative
+        type: int
+        semantic_key: gripper.vacuum.measured_b
+        description: "Measured channel B vacuum in thousandths of relative vacuum."

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Plan>
+  <Control type="sequential" name="onrobot_rg6_aperture_sequence">
+    <Runner
+      interface="onrobot_capabilities/OnRobotRGCommandRunner"
+      provider="onrobot_capabilities/OnRobotRG6CommandRunner"
+      position="0.03"
+      max_effort="0.0" />
+    <Runner
+      interface="onrobot_capabilities/OnRobotRGCommandRunner"
+      provider="onrobot_capabilities/OnRobotRG6CommandRunner"
+      position="0.0"
+      max_effort="0.0" />
+  </Control>
+</Plan>

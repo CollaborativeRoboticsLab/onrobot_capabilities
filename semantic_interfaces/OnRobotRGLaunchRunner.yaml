@@ -1,0 +1,12 @@
+%YAML 1.1
+---
+name: OnRobotRGLaunchRunner
+spec_type: semantic_interface
+spec_version: 1.2
+description: "Launches OnRobot RG control software and waits for the shared command action."
+redefines: gripper_capabilities/GripperLaunchRunner
+interface:
+  actions:
+    "/gripper_command":
+      type: "control_msgs::action::GripperCommand"
+      description: "Shared RG-series aperture command action."

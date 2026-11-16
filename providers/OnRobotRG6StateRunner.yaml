@@ -1,0 +1,32 @@
+%YAML 1.1
+---
+name: OnRobotRG6StateRunner
+spec_type: provider
+spec_version: 1.2
+description: "Reads the simulated RG6 aperture using the generic gripper state runner."
+implements: onrobot_capabilities/OnRobotRGStateRunner
+runner: capabilities2_runner::GripperStateRunner
+
+definition:
+  command: "<Runner interface=onrobot_capabilities/OnRobotRGStateRunner provider=onrobot_capabilities/OnRobotRG6StateRunner timeout_sec='$timeout_sec' />"
+  configuration_parameters:
+    - name: timeout_sec
+      type: double
+      optional: true
+      default: 2.0
+      semantic_key: gripper.state.timeout
+      description: "Maximum time to wait for an RG6 aperture state sample."
+  runtime_parameters:
+    output:
+      - name: joint_names
+        type: string[]
+        semantic_key: gripper.state.names
+        description: "The aperture joint name reported by the system."
+      - name: joint_positions
+        type: double[]
+        semantic_key: gripper.state.positions
+        description: "Aperture in meters, matching joint_names."
+      - name: joint_count
+        type: int
+        semantic_key: gripper.state.count
+        description: "Number of aperture state joints returned."
